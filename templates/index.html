@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Print Shop</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+<header>
+
+<div class="container nav">
+
+<div class="logo">
+<i class="fa-solid fa-print"></i>
+<h2>Smart <span>Print</span> Shop</h2>
+</div>
+
+<nav>
+
+<ul>
+
+<li><a href="/">Home</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#pricing">Pricing</a></li>
+<li><a href="#contact">Contact</a></li>
+
+</ul>
+
+</nav>
+
+<a href="/upload-page" class="btn">
+Upload & Print
+</a>
+
+</div>
+
+</header>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="overlay"></div>
+
+    <div class="container hero-content">
+
+        <div class="hero-left">
+
+            <span class="hero-tag">Professional Printing Services</span>
+
+            <h1>
+                Print Smarter,
+                <span>Faster</span> &
+                Better
+            </h1>
+
+            <p>
+                Upload your documents online and get high-quality Black & White,
+                Colour Prints, Photocopies and Passport Photos at affordable prices.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="/upload-page" class="btn">
+                    Upload Document
+                </a>
+
+                <a href="#pricing" class="btn-outline">
+                    View Pricing
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="hero-right">
+
+            <img src="https://images.unsplash.com/photo-1588702547919-26089e690ecc?w=900"
+                 alt="Printer">
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= FEATURES ================= -->
+
+<section class="features">
+
+    <div class="container feature-grid">
+
+        <div class="feature-card">
+            <i class="fa-solid fa-upload"></i>
+            <h3>Easy Upload</h3>
+            <p>Upload PDF, DOCX, JPG and PNG files in just a few clicks.</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="fa-solid fa-print"></i>
+            <h3>High Quality Print</h3>
+            <p>Sharp black & white and colour printing with premium quality.</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="fa-solid fa-bolt"></i>
+            <h3>Fast Service</h3>
+            <p>Quick printing with minimum waiting time.</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="fa-solid fa-indian-rupee-sign"></i>
+            <h3>Affordable Price</h3>
+            <p>Professional printing at the best price.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= SERVICES ================= -->
+
+<section id="services" class="services">
+
+    <div class="container">
+
+        <h2 class="section-title">Our Services</h2>
+
+        <p class="section-subtitle">
+            Fast, affordable and high-quality printing services.
+        </p>
+
+        <div class="service-grid">
+
+            <div class="service-card">
+                <i class="fa-solid fa-print"></i>
+                <h3>Black & White Print</h3>
+                <p>Sharp and clear document printing for students and offices.</p>
+            </div>
+
+            <div class="service-card">
+                <i class="fa-solid fa-palette"></i>
+                <h3>Colour Print</h3>
+                <p>Premium colour printing with vibrant output.</p>
+            </div>
+
+            <div class="service-card">
+                <i class="fa-solid fa-copy"></i>
+                <h3>Photocopy</h3>
+                <p>Single and bulk photocopy at affordable prices.</p>
+            </div>
+
+            <div class="service-card">
+                <i class="fa-solid fa-camera"></i>
+                <h3>Passport Photo</h3>
+                <p>Passport, Visa and ID Card photos.</p>
+            </div>
+
+            <div class="service-card">
+                <i class="fa-solid fa-file-lines"></i>
+                <h3>Document Scan</h3>
+                <p>Scan documents into high-quality PDF or image.</p>
+            </div>
+
+            <div class="service-card">
+                <i class="fa-solid fa-book"></i>
+                <h3>Spiral Binding</h3>
+                <p>Professional spiral binding for projects and reports.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= PRICING ================= -->
+
+<section id="pricing" class="pricing">
+
+    <div class="container">
+
+        <h2 class="section-title">Our Price List</h2>
+
+        <p class="section-subtitle">
+            Simple & Affordable Pricing
+        </p>
+
+        <div class="price-table">
+
+            <table>
+
+                <tr>
+                    <th>Service</th>
+                    <th>Price</th>
+                </tr>
+
+                <tr>
+                    <td>🖨️ Black & White Print</td>
+                    <td>₹5 / Page</td>
+                </tr>
+
+                <tr>
+                    <td>🌈 Colour Print</td>
+                    <td>₹5 / Page</td>
+                </tr>
+
+                <tr>
+                    <td>📄 Photocopy</td>
+                    <td>₹5 / Page</td>
+                </tr>
+
+                <tr>
+                    <td>📸 Passport Photo</td>
+                    <td>₹5 / Copy (Minimum 5 Copies)</td>
+                </tr>
+
+                <tr>
+                    <td>📑 Document Scan</td>
+                    <td>₹10</td>
+                </tr>
+
+                <tr>
+                    <td>📚 Spiral Binding</td>
+                    <td>₹50</td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact" class="contact">
+
+<div class="container">
+
+<h2 class="section-title">Contact Us</h2>
+
+<p class="section-subtitle">
+We're here to help. Get in touch with us.
+</p>
+
+<div class="contact-grid">
+
+<div class="contact-card">
+
+<i class="fa-solid fa-location-dot"></i>
+
+<h3>Address</h3>
+
+<p>No. 4 Tatibahar, Assam</p>
+
+</div>
+
+<div class="contact-card">
+
+<i class="fa-solid fa-phone"></i>
+
+<h3>Phone</h3>
+
+<p>
+<a href="tel:+919957245263">
++91 9957245263
+</a>
+</p>
+
+</div>
+
+<div class="contact-card">
+
+<i class="fa-solid fa-envelope"></i>
+
+<h3>Email</h3>
+
+<p>
+<a href="mailto:bbharali016@email.com">
+bbharali016@email.com
+</a>
+</p>
+
+</div>
+
+<div class="contact-card">
+
+<i class="fa-brands fa-instagram"></i>
+
+<h3>Instagram</h3>
+
+<p>
+<a href="https://www.instagram.com/__bitupan_2/" target="_blank">
+@__bitupan_2
+</a>
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+© 2026 Smart Print Shop | Developed by Bitupan Bharali
+
+</p>
+
+</div>
+
+</footer>
+
+</body>
+</html>
+

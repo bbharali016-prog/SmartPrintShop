@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Dashboard</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<header>
+
+<div class="container nav">
+
+<div class="logo">
+<i class="fa-solid fa-print"></i>
+<h2>Smart <span>Print</span> Shop</h2>
+</div>
+
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/admin" class="active">Dashboard</a></li>
+</ul>
+</nav>
+
+</div>
+
+</header>
+
+<section class="admin-dashboard">
+
+<div class="container">
+
+<h1 class="dashboard-title">
+<i class="fa-solid fa-chart-line"></i>
+Admin Dashboard
+</h1>
+
+<div class="dashboard-cards">
+
+<div class="card">
+    <h3>Total Jobs</h3>
+    <h1>{{ jobs|length }}</h1>
+</div> 
+
+<div class="card">
+<h3>Pending</h3>
+<h1>0</h1>
+</div>
+
+<div class="card">
+<h3>Printing</h3>
+<h1>0</h1>
+</div>
+
+<div class="card">
+    <h3>Failed</h3>
+    <h1>
+        {{ jobs|selectattr('status','equalto','Failed')|list|length }}
+    </h1>
+</div>
+
+<div class="card">
+<h3>Completed</h3>
+<h1>0</h1>
+</div>
+
+</div>
+
+<!-- ================= QUICK PRINT ================= -->
+
+<div class="quick-upload">
+
+<h2>
+<i class="fa-solid fa-print"></i>
+Quick Upload & Print
+</h2>
+
+<form action="/upload" method="POST" enctype="multipart/form-data">
+
+<div class="quick-grid">
+
+    <div class="input-box">
+
+<label>Customer Name</label>
+
+<input
+type="text"
+name="name"
+required>
+
+</div>
+
+<div class="input-box">
+
+<label>Print Type</label>
+
+<select name="print_type">
+<option>Black & White</option>
+<option>Colour</option>
+</select>
+
+</div>
+
+<div class="input-box">
+
+<label>Copies</label>
+
+<input type="number"
+name="copies"
+value="1"
+min="1">
+
+</div>
+
+<div class="input-box">
+
+<label>Select File</label>
+
+<input type="file"
+name="file"
+required>
+
+</div>
+
+</div>
+
+<button class="upload-btn">
+
+<i class="fa-solid fa-cloud-arrow-up"></i>
+
+Upload & Print
+
+</button>
+
+</form>
+
+</div>
+
+<div class="search-box">
+
+<input type="text"
+placeholder="🔍 Search Customer">
+
+</div>
+
+<div class="table-container">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>ID</th>
+<th>Customer</th>
+<th>File</th>
+<th>Print Type</th>
+<th>Copies</th>
+<th>Status</th>
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+{% if jobs %}
+
+    {% for job in jobs %}
+
+    <tr>
+
+        <td>{{ job.id }}</td>
+        <td>{{ job.customer_name }}</td>
+        <td>{{ job.filename }}</td>
+        <td>{{ job.print_type }}</td>
+        <td>{{ job.copies }}</td>
+
+        <td>
+            {% if job.status == "Pending" %}
+                <span class="pending">Pending</span>
+
+            {% elif job.status == "Completed" %}
+                <span class="completed">Completed</span>
+
+            {% elif job.status == "Failed" %}
+                <span class="failed">Failed</span>
+
+            {% endif %}
+        </td>
+
+        <td>
+            <a href="/print/{{ job.id }}" class="print-btn">🖨 Print</a>
+
+            <a href="/cancel/{{ job.id }}" class="cancel-btn">❌ Cancel</a>
+        </td>
+
+    </tr>
+
+    {% endfor %}
+
+{% else %}
+
+<tr>
+    <td colspan="7" style="text-align:center;">
+        No Jobs Available
+    </td>
+</tr>
+
+{% endif %}
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+</body>
+
+</html>

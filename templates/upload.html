@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Upload Document</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<header>
+
+<div class="container nav">
+
+<div class="logo">
+<i class="fa-solid fa-print"></i>
+<h2>Smart <span>Print</span> Shop</h2>
+</div>
+
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+</div>
+
+</header>
+
+<section class="upload-page">
+
+<div class="upload-card">
+
+<h1>Upload Your Document</h1>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <div class="success-message">
+      {{ messages[0] }}
+    </div>
+  {% endif %}
+{% endwith %}
+
+<p>Upload PDF, DOCX, JPG or PNG files for printing.</p>
+
+<form action="/upload" method="POST" enctype="multipart/form-data">
+    <div class="input-box">
+        <label>Customer Name</label>
+        <input type="text" name="name" placeholder="Enter Your Name" required>
+    </div>
+
+    <div class="input-box">
+        <label>Print Type</label>
+        <select name="print_type">
+            <option>Black & White</option>
+            <option>Colour</option>
+        </select>
+    </div>
+
+    <div class="input-box">
+        <label>Copies</label>
+        <input type="number" name="copies" value="1" min="1">
+    </div>
+
+    <div class="input-box">
+        <label>Paper Size</label>
+        <select name="paper_size">
+            <option>A4</option>
+            <option>A3</option>
+        </select>
+    </div>
+
+    <div class="input-box">
+        <label>Select File</label>
+        <input type="file" name="file" required>
+    </div>
+
+    <button type="submit" class="upload-btn">
+        <i class="fa-solid fa-cloud-arrow-up"></i>
+        Upload & Print
+    </button>
+</form>
+
+</div>
+
+</section>
+
+</body>
+</html>
